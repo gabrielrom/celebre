@@ -1,6 +1,6 @@
 import styles from './CelebreButton.module.css'
 
-export default function CelebreButton({
+function CelebreButton({
   title,
   icon,
   iconPosition = 'right',
@@ -44,3 +44,5 @@ export default function CelebreButton({
     </button>
   )
 }
+
+export default CelebreButton
