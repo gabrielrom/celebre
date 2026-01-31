@@ -1,11 +1,7 @@
-import { useHome } from '../controllers/useHome'
-
 export function HomeView() {
-  useHome()
-
   return (
     <div>
-      <h1>Hello World</h1>
+      <h1>Home Page</h1>
     </div>
   )
 }
