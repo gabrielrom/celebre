@@ -1,0 +1,21 @@
+---
+description: Padrões para criação de componentes (src/components)
+globs: src/components/**/*
+alwaysApply: false
+---
+
+# Componentes (React)
+
+- **Nome**: PascalCase para pasta e arquivos (ex.: `InfoCard/InfoCard.jsx`).
+- **Estrutura**: todo componente deve viver em `src/components/NomeDoComponente/` contendo:
+  - `NomeDoComponente.jsx`
+  - `NomeDoComponente.module.css`
+- **Exportação**: use `export default NomeDoComponente` (como `src/components/InfoCard/InfoCard.jsx`).
+- **CSS Modules**: importe com `import styles from './NomeDoComponente.module.css'`.
+- **Props**: destruture props e aceite `className` opcional para composição.
+- **Ícones**: receber ícone como **ReactNode** (ex.: `lucide-react`), dentro de um wrapper; use `aria-hidden` quando for decorativo.
+- **Tokens**: usar variáveis do `:root` (ex.: `--white-color`, `--title-text-color`, etc.) ao invés de hardcode.
+- **Layout**:
+  - Evitar `height` fixa quando o conteúdo pode crescer; prefira `min-height`.
+  - Para espaçamento “ícone → título” (ex.: 20px), use wrapper flex (`.content`) e `gap` apropriado.
+
