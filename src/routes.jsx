@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { HomeView } from './views/HomeView'
+import { HomeView } from "./pages/home/views/HomeView"
 
 const router = createBrowserRouter([
   {
