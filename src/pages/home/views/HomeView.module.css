@@ -1,0 +1,13 @@
+.container {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.title {
+  font-size: 32px;
+  line-height: 1.1;
+  color: var(--color-primary);
+}
+
