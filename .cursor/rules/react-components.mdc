@@ -11,6 +11,29 @@ alwaysApply: false
   - `NomeDoComponente.jsx`
   - `NomeDoComponente.module.css`
 - **Exportação**: use `export default NomeDoComponente` (como `src/components/InfoCard/InfoCard.jsx`).
+
+Exemplo:
+
+```
+function InfoCard({ icon, title, subtitle, className }) { <-- declaracao da funcao
+  return (
+    <article className={`${styles.card}${className ? ` ${className}` : ''}`}>
+      <div className={styles.icon} aria-hidden="true">
+        {icon}
+      </div>
+
+      <div className={styles.content}>
+        <h3 className={styles.title}>{title}</h3>
+        <p className={styles.subtitle}>{subtitle}</p>
+      </div>
+    </article>
+  )
+}
+
+export default InfoCard <-- exportacao da funcao
+
+```
+
 - **CSS Modules**: importe com `import styles from './NomeDoComponente.module.css'`.
 - **Props**: destruture props e aceite `className` opcional para composição.
 - **Ícones**: receber ícone como **ReactNode** (ex.: `lucide-react`), dentro de um wrapper; use `aria-hidden` quando for decorativo.
