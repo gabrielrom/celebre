@@ -1,0 +1,185 @@
+.card {
+  width: 100%;
+  max-width: 396px;
+
+  display: block;
+  background: var(--white-color);
+  border: 1px solid var(--gray-border-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.cardInteractive {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.cardInteractive:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 396 / 300;
+  background: var(--gray-border-color);
+  overflow: hidden;
+}
+
+.image,
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.image {
+  transition: transform 200ms ease;
+  transform-origin: center;
+  will-change: transform;
+}
+
+@media (hover: hover) {
+  .cardInteractive:hover .image {
+    transform: scale(1.05);
+  }
+}
+
+.imagePlaceholder {
+  background: color-mix(in srgb, var(--gray-border-color) 70%, transparent);
+}
+
+.incomeBar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  min-height: 65px;
+  padding: 12px 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  background: var(--primary-color);
+  color: var(--white-color);
+}
+
+.incomeLabel {
+  font-family: var(--font-sans);
+  font-size: 16px;
+}
+
+.incomeLabelTop {
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.incomeLabelSub {
+  font-weight: 100;
+  text-transform: none;
+}
+
+.incomeValue {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 24px;
+  white-space: nowrap;
+}
+
+.body {
+  padding: 16px 26px 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.name {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--subtitle-text-color);
+}
+
+.state {
+  min-height: 34px;
+  min-width: 57px;
+  padding: 8px 12px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid var(--gray-border-color);
+  border-radius: 6px;
+
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--subtitle-text-color);
+}
+
+.divider {
+  height: 1px;
+  border: 0;
+  background: var(--gray-color);
+  margin: 16px 0;
+}
+
+.differentials {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 0;
+  row-gap: 8px;
+
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--subtitle-text-color);
+}
+
+.differentialItem {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.differentialContent {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.differentialIcon {
+  width: 16px;
+  height: 16px;
+  display: grid;
+  place-items: center;
+}
+
+.differentialIcon :global(svg) {
+  width: 16px;
+  height: 16px;
+  color: var(--subtitle-text-color);
+}
+
+.differentialTitle {
+  display: inline-block;
+}
+
+.differentialItem:not(:last-child)::after {
+  content: '|';
+  margin: 0 8px;
+  color: var(--subtitle-text-color);
+}
