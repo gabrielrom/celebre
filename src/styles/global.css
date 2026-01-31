@@ -1,11 +1,11 @@
 /* Global styles + design tokens (CSS variables) */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
   --color-primary: #646cff;
   --color-background: #ffffff;
   --color-text: #213547;
-
-  --font-sans: system-ui, sans-serif;
+  --font-sans: 'Archivo', sans-serif;
 }
 
 * {
