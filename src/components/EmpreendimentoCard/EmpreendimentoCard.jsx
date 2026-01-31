@@ -17,8 +17,8 @@ function EmpreendimentoCard({
     className ? ` ${className}` : ''
   }`
 
-  const content = (
-    <>
+  return (
+    <Link to={to} className={rootClassName} {...props}>
       <div className={styles.media}>
         {imageSrc ? (
           <img
@@ -65,21 +65,7 @@ function EmpreendimentoCard({
           ))}
         </ul>
       </div>
-    </>
-  )
-
-  if (to) {
-    return (
-      <Link to={to} className={rootClassName} {...props}>
-        {content}
-      </Link>
-    )
-  }
-
-  return (
-    <article className={rootClassName} {...props}>
-      {content}
-    </article>
+    </Link>
   )
 }
 
