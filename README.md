@@ -2,6 +2,10 @@
 
 Projeto web com React, React Router e CSS Modules.
 
+A interface está sendo construída seguindo o paradigma **mobile-first**.
+
+Como o site é simples até o momento, estamos usando uma organização inspirada em **MVC (Model-View-Controller)**, por ser uma forma mais simples de manter o código estruturado.
+
 ## Stack
 
 - React
