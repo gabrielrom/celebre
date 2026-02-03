@@ -1,0 +1,100 @@
+# Layout e Estrutura de Páginas
+
+Esta regra define o padrão para a criação de novas páginas no projeto Celebre. Sempre que for solicitada a criação de uma nova tela ou rota, siga estas diretrizes rigorosamente.
+
+## 1. Estrutura de Diretórios
+
+Cada página deve ter seu próprio diretório dentro de `src/pages/`, organizado da seguinte forma:
+
+```
+src/pages/[nome-da-pagina]/
+├── views/
+│   ├── [NomeDaPagina]View.jsx       <-- Componente principal da visualização
+│   └── [NomeDaPagina]View.module.css <-- Estilos específicos da página
+├── controllers/ (opcional)
+│   └── use[NomeDaPagina].js         <-- Lógica/Hooks personalizados (se necessário)
+```
+
+- **Exemplo:** `src/pages/home/views/HomeView.jsx`
+
+## 2. Layout Padrão (CSS Grid)
+
+Todas as páginas devem utilizar um layout base responsivo com CSS Grid. O container principal da View deve implementar a seguinte estrutura:
+
+### Desktop (Padrão)
+- 3 Colunas iguais.
+- Áreas definidas para Navbar (topo), Conteúdo (centro) e Footer (base).
+
+### Mobile (max-width: 768px)
+- 1 Coluna única.
+- Áreas empilhadas verticalmente.
+
+### Template CSS Module
+Copie e adapte este CSS para o arquivo `.module.css` da View:
+
+```css
+.container {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "navbar navbar navbar"
+    "content content content"
+    "footer footer footer";
+}
+
+.navbarArea {
+  grid-area: navbar;
+}
+
+.contentArea {
+  grid-area: content;
+  /* Ajuste o alinhamento e padding conforme necessidade do conteúdo */
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  padding: 24px;
+}
+
+.footerArea {
+  grid-area: footer;
+}
+
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "navbar"
+      "content"
+      "footer";
+  }
+}
+```
+
+## 3. Exemplo de Componente View (JSX)
+
+```jsx
+import Navbar from '../../../../components/Navbar/Navbar';
+import styles from './NomeDaPaginaView.module.css';
+
+export function NomeDaPaginaView() {
+  return (
+    <div className={styles.container}>
+      <header className={styles.navbarArea}>
+        <Navbar />
+      </header>
+
+      <main className={styles.contentArea}>
+        {/* Conteúdo da página aqui */}
+        <h1>Título da Página</h1>
+      </main>
+
+      <footer className={styles.footerArea}>
+        {/* Componente Footer aqui */}
+      </footer>
+    </div>
+  );
+}
+```
