@@ -1,7 +1,8 @@
 .card {
-  width: 396px;
+  width: 100%;
+  max-width: 396px;
   min-height: 220px;
-  padding: 32px 16px;
+  padding: 32px 24px;
 
   display: flex;
   flex-direction: column;
@@ -46,7 +47,6 @@
 }
 
 .title {
-  max-width: 296px;
   font-family: var(--font-sans);
   font-size: 16px;
   font-weight: 700;
@@ -55,7 +55,6 @@
 }
 
 .subtitle {
-  max-width: 296px;
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 300;
