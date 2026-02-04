@@ -1,0 +1,62 @@
+.carouselContainer {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  background-color: var(--gray-color); /* Placeholder bg */
+}
+
+.slidesWrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  background-color: var(--secodary-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.2s ease;
+}
+
+.navButton:hover {
+  filter: brightness(0.9);
+}
+
+.prevButton {
+  left: 20px;
+}
+
+.nextButton {
+  right: 20px;
+}
+
+/* Responsividade: Ajustes opcionais para mobile */
+@media (max-width: 768px) {
+  .carouselContainer {
+    height: 400px; /* Opcional: reduzir altura em telas pequenas */
+  }
+}
