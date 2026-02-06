@@ -8,14 +8,22 @@ Cada página deve ter seu próprio diretório dentro de `src/pages/`, organizado
 
 ```
 src/pages/[nome-da-pagina]/
+├── components/                 <-- Componentes específicos desta página (seções, cards, etc.)
+│   └── [NomeDaSecao]/
+│       ├── [NomeDaSecao].jsx
+│       └── [NomeDaSecao].module.css
+├── loaders/                    <-- Funções de carregamento de dados (React Router loaders)
+│   └── [nomeDaPagina]Loader.js
 ├── views/
-│   ├── [NomeDaPagina]View.jsx       <-- Componente principal da visualização
-│   └── [NomeDaPagina]View.module.css <-- Estilos específicos da página
-├── controllers/ (opcional)
-│   └── use[NomeDaPagina].js         <-- Lógica/Hooks personalizados (se necessário)
+│   ├── [NomeDaPagina]View.jsx       <-- Componente principal da visualização (Page Wrapper)
+│   └── [NomeDaPagina]View.module.css <-- Layout grid principal da página
+└── hooks/ (opcional)           <-- Hooks personalizados (antigo controllers)
+    └── use[NomeDaPagina].js
 ```
 
 - **Exemplo:** `src/pages/home/views/HomeView.jsx`
+- **Exemplo:** `src/pages/home/loaders/homeLoader.js`
+- **Exemplo:** `src/pages/home/components/AboutSection/AboutSection.jsx`
 
 ## 2. Layout Padrão (CSS Grid)
 
@@ -54,7 +62,7 @@ Copie e adapte este CSS para o arquivo `.module.css` da View:
   display: flex;
   flex-direction: column;
   align-items: center; 
-  padding: 24px;
+  width: 100%;
 }
 
 .footerArea {
@@ -77,9 +85,15 @@ Copie e adapte este CSS para o arquivo `.module.css` da View:
 
 ```jsx
 import Navbar from '../../../../components/Navbar/Navbar';
+import Footer from '../../../../components/Footer/Footer';
 import styles from './NomeDaPaginaView.module.css';
+import { useLoaderData } from 'react-router-dom';
+// Importar seções específicas da página
+// import MinhaSecao from '../components/MinhaSecao/MinhaSecao';
 
 export function NomeDaPaginaView() {
+  const data = useLoaderData(); // Dados vindos do loader
+
   return (
     <div className={styles.container}>
       <header className={styles.navbarArea}>
@@ -87,13 +101,12 @@ export function NomeDaPaginaView() {
       </header>
 
       <main className={styles.contentArea}>
-        {/* Conteúdo da página aqui */}
-        <h1>Título da Página</h1>
+        {/* Renderizar componentes de seção aqui */}
+        {/* <MinhaSecao data={data.secao} /> */}
+        <h1>Conteúdo Principal</h1>
       </main>
 
-      <footer className={styles.footerArea}>
-        {/* Componente Footer aqui */}
-      </footer>
+      <Footer className={styles.footerArea} />
     </div>
   );
 }
