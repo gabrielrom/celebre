@@ -13,6 +13,8 @@ import imagem4 from '../../../assets/imagem-4.jpeg';
 import imagem5 from '../../../assets/imagem-5.jpeg';
 import styles from './HomeView.module.css';
 
+import Footer from '../../../components/Footer/Footer';
+
 export function HomeView() {
   const banners = [
     { image: bannerImage, imageMobile: bannerImageMobile, alt: 'Banner Promocional 1' },
@@ -142,9 +144,7 @@ export function HomeView() {
         </section>
       </main>
 
-      <footer className={styles.footerArea}>
-        {/* Footer content will go here */}
-      </footer>
+      <Footer className={styles.footerArea} />
     </div>
   );
 }

@@ -1,0 +1,133 @@
+.footer {
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--navbar-gradient-end) 100%);
+  color: var(--white-color);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  padding: 30px;
+}
+
+.mainContent {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: first baseline;
+}
+
+.brandSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.brandHeader {
+  display: flex;
+  gap: 20px;
+}
+
+.logoText {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--white-color);
+  align-self: flex-end;
+}
+
+.description {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--gray-color-2);
+  max-width: 368px;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: color-mix(in srgb, var(--white-color) 13%, transparent);
+}
+
+.socialLink:hover {
+  opacity: 0.8;
+}
+
+.socialLink img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.columnTitle {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--white-color);
+}
+
+.contactList, .hoursList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contactItem, .hoursItem {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--gray-color-2);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.contactItem a {
+  color: var(--gray-color-2);
+  text-decoration: none;
+}
+
+.copyright {
+  border-top: 1px solid rgb(210,210,210);
+  padding-top: 20px;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--gray-color-2);
+  margin-top: 20px;
+}
+
+
+/* Media Queries */
+/* Mobile */
+@media (max-width: 768px) {
+  .mainContent {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .mainContent {
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 40px;
+  }
+}
