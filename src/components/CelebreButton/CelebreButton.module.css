@@ -1,0 +1,74 @@
+.button {
+  --icon-size: 20px;
+  --button-content-gap: 10px;
+
+  width: 100%;
+  min-height: 60px;
+  padding: 16px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.088;
+  color: var(--white-color);
+
+  background: var(--button-bg, var(--secodary-color));
+  border: 0;
+  border-radius: 8px;
+
+  cursor: pointer;
+  transition: background 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--button-content-gap, 10px);
+}
+
+.title {
+  text-align: center;
+}
+
+.icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  display: grid;
+  place-items: center;
+}
+
+.icon :global(svg),
+.icon img {
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+
+@media (hover: hover) {
+  .button:hover:not(:disabled) {
+    background: color-mix(
+      in srgb,
+      var(--button-bg, var(--secodary-color)) 90%,
+      var(--primary-color)
+    );
+  }
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.button:disabled {
+  background: var(--disable-background-color);
+  cursor: not-allowed;
+  transform: none;
+}

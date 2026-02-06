@@ -1,0 +1,42 @@
+/* Global styles + design tokens (CSS variables) */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --primary-color: #0D1B0E;
+  --secodary-color: #C89D30;
+  --title-text-color: #000000;
+  --subtitle-text-color: #414141;
+  --white-color: #FFFFFF;
+  --black-color: #000000;
+  --gray-border-color: #D9D9D9;
+  --disable-background-color: #CDCDCD;
+  --placeholder-text-color: #ACACAC;
+  --gray-color: #D4D4D4;
+  --gray-color-2: #D2D2D2;
+  --color-primary: #646cff;
+  --color-background: #F8F8F8;
+  --navbar-gradient-end: #2E412F;
+  --menu-icon-color: #ECD076;
+  --color-text: #213547;
+  --font-sans: 'Archivo', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+

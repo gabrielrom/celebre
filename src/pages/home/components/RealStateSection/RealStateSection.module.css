@@ -1,0 +1,53 @@
+.realStateSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 26px;
+  background-color: var(--white-color);
+  margin-bottom: 50px;
+}
+
+.realStateTitle {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--black-color);
+  margin-bottom: 10px;
+}
+
+.realStateSubtitle {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: var(--subtitle-text-color);
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.realStateList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.realStateButton {
+  max-width: 400px;
+  height: 60px;
+}
+
+/* Media Queries */
+
+@media (max-width: 1024px) {
+  .realStateList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .realStateList {
+    grid-template-columns: 1fr;
+  }
+}

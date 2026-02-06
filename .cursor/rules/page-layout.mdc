@@ -1,0 +1,113 @@
+# Layout e Estrutura de Páginas
+
+Esta regra define o padrão para a criação de novas páginas no projeto Celebre. Sempre que for solicitada a criação de uma nova tela ou rota, siga estas diretrizes rigorosamente.
+
+## 1. Estrutura de Diretórios
+
+Cada página deve ter seu próprio diretório dentro de `src/pages/`, organizado da seguinte forma:
+
+```
+src/pages/[nome-da-pagina]/
+├── components/                 <-- Componentes específicos desta página (seções, cards, etc.)
+│   └── [NomeDaSecao]/
+│       ├── [NomeDaSecao].jsx
+│       └── [NomeDaSecao].module.css
+├── loaders/                    <-- Funções de carregamento de dados (React Router loaders)
+│   └── [nomeDaPagina]Loader.js
+├── views/
+│   ├── [NomeDaPagina]View.jsx       <-- Componente principal da visualização (Page Wrapper)
+│   └── [NomeDaPagina]View.module.css <-- Layout grid principal da página
+└── hooks/ (opcional)           <-- Hooks personalizados (antigo controllers)
+    └── use[NomeDaPagina].js
+```
+
+- **Exemplo:** `src/pages/home/views/HomeView.jsx`
+- **Exemplo:** `src/pages/home/loaders/homeLoader.js`
+- **Exemplo:** `src/pages/home/components/AboutSection/AboutSection.jsx`
+
+## 2. Layout Padrão (CSS Grid)
+
+Todas as páginas devem utilizar um layout base responsivo com CSS Grid. O container principal da View deve implementar a seguinte estrutura:
+
+### Desktop (Padrão)
+- 3 Colunas iguais.
+- Áreas definidas para Navbar (topo), Conteúdo (centro) e Footer (base).
+
+### Mobile (max-width: 768px)
+- 1 Coluna única.
+- Áreas empilhadas verticalmente.
+
+### Template CSS Module
+Copie e adapte este CSS para o arquivo `.module.css` da View:
+
+```css
+.container {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "navbar navbar navbar"
+    "content content content"
+    "footer footer footer";
+}
+
+.navbarArea {
+  grid-area: navbar;
+}
+
+.contentArea {
+  grid-area: content;
+  /* Ajuste o alinhamento e padding conforme necessidade do conteúdo */
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 100%;
+}
+
+.footerArea {
+  grid-area: footer;
+}
+
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "navbar"
+      "content"
+      "footer";
+  }
+}
+```
+
+## 3. Exemplo de Componente View (JSX)
+
+```jsx
+import Navbar from '../../../../components/Navbar/Navbar';
+import Footer from '../../../../components/Footer/Footer';
+import styles from './NomeDaPaginaView.module.css';
+import { useLoaderData } from 'react-router-dom';
+// Importar seções específicas da página
+// import MinhaSecao from '../components/MinhaSecao/MinhaSecao';
+
+export function NomeDaPaginaView() {
+  const data = useLoaderData(); // Dados vindos do loader
+
+  return (
+    <div className={styles.container}>
+      <header className={styles.navbarArea}>
+        <Navbar />
+      </header>
+
+      <main className={styles.contentArea}>
+        {/* Renderizar componentes de seção aqui */}
+        {/* <MinhaSecao data={data.secao} /> */}
+        <h1>Conteúdo Principal</h1>
+      </main>
+
+      <Footer className={styles.footerArea} />
+    </div>
+  );
+}
+```
