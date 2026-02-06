@@ -7,7 +7,7 @@ import styles from './Footer.module.css';
 
 function Footer({ className }) {
   return (
-    <footer className={`${styles.footer} ${className || ''}`}>
+    <footer className={`${styles.footer} ${className || ""}`}>
       <div className={styles.mainContent}>
         <div className={styles.brandSection}>
           <div className={styles.brandHeader}>
@@ -15,10 +15,19 @@ function Footer({ className }) {
             <h2 className={styles.logoText}>Celebre</h2>
           </div>
           <p className={styles.description}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book.
           </p>
           <div className={styles.socialIcons}>
-            <a href="#" className={styles.socialLink} aria-label="Instagram">
+            <a
+              href="https://www.instagram.com/celebreimoveis/"
+              className={styles.socialLink}
+              aria-label="Instagram"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={instagramLogo} alt="Instagram" />
             </a>
             <a href="#" className={styles.socialLink} aria-label="WhatsApp">
