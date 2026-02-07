@@ -2,22 +2,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  --primary-color: #0D1B0E;
-  --secodary-color: #C89D30;
-  --title-text-color: #000000;
-  --subtitle-text-color: #414141;
+  --primary-color: #0B3D0F;
+  --secodary-color: #E8A830;
+  --title-text-color: #1A1A1A;
+  --subtitle-text-color: #3D3D3D;
   --white-color: #FFFFFF;
   --black-color: #000000;
   --gray-border-color: #D9D9D9;
   --disable-background-color: #CDCDCD;
   --placeholder-text-color: #ACACAC;
-  --gray-color: #D4D4D4;
-  --gray-color-2: #D2D2D2;
+  --gray-color: #9E9E9E;
+  --gray-color-2: #8E8E8E;
   --color-primary: #646cff;
-  --color-background: #F8F8F8;
-  --navbar-gradient-end: #2E412F;
-  --menu-icon-color: #ECD076;
-  --color-text: #213547;
+  --color-background: #FAFAF8;
+  --navbar-gradient-end: #1E5C22;
+  --color-text: #1E3D20;
+  --text-on-dark: #E8E8E8;
   --font-sans: 'Archivo', sans-serif;
 }
 
