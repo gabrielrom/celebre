@@ -130,7 +130,7 @@
 .divider {
   height: 1px;
   border: 0;
-  background: var(--gray-color);
+  background: var(--gray-border-color);
   margin: 16px 0;
 }
 
