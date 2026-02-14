@@ -1,3 +1,4 @@
+import { routesPath } from './configs/global'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { homeLoader } from './pages/home/loaders/homeLoader'
 import { HomeView } from './pages/home/views/HomeView'
@@ -6,7 +7,7 @@ import RealStatesView from './pages/realStates/views/RealStatesView'
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: routesPath['index'],
     element: <CelebrePage />,
     children: [
       {
@@ -15,7 +16,7 @@ const router = createBrowserRouter([
         loader: homeLoader
       },
       {
-        path: '/imoveis',
+        path: routesPath['realStates'],
         element: <RealStatesView />,
       }
     ]
