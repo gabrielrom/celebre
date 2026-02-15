@@ -1,13 +1,12 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { MoveRight, Bed, Bath, Car } from 'lucide-react'
+import { MoveRight } from 'lucide-react'
 import EmpreendimentoCard from '../../../../components/EmpreendimentoCard/EmpreendimentoCard'
 import CelebreButton from '../../../../components/CelebreButton/CelebreButton'
 import styles from './RealStateSection.module.css'
-import { routesPath } from '../../../../configs/global'
+import { routesPath, iconMap } from '../../../../configs/global'
 
 function RealStateSection({ realStates }) {
-  const iconMap = { bed: <Bed />, bath: <Bath />, car: <Car /> };
   const navigate = useNavigate();
   
   return (
