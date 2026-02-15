@@ -31,7 +31,9 @@ function fetchMostImportantRealStates() {
       image: imagem1,
       minIncome: 'R$ 3.200,00', 
       name: 'Forte Alencar', 
-      state: 'CE', 
+      acronymState: 'CE',
+      state: 'Ceará',
+      city: 'Fortaleza',
       differentials: [
         { title: '2 quartos', icon: 'bed' },
         { title: '1 banheiro', icon: 'bath' },
@@ -43,7 +45,9 @@ function fetchMostImportantRealStates() {
       image: imagem2,
       minIncome: 'R$ 1.000,00', 
       name: 'Bosque das Flores',
-      state: 'CE', 
+      acronymState: 'CE',
+      state: 'Ceará',
+      city: 'Fortaleza',
       differentials: [
         { title: '2 quartos', icon: 'bed' },
         { title: '1 banheiro', icon: 'bath' },
@@ -54,7 +58,9 @@ function fetchMostImportantRealStates() {
       image: imagem3,
       minIncome: 'R$ 1.200,00',
       name: 'Ipanema Beach', 
-      state: 'CE', 
+      acronymState: 'CE',
+      state: 'Ceará',
+      city: 'Fortaleza',
       differentials: [
         { title: '2 quartos', icon: 'bed' },
         { title: '1 banheiro', icon: 'bath' },
@@ -66,7 +72,9 @@ function fetchMostImportantRealStates() {
       image: imagem4,
       minIncome: 'R$ 3.200,00', 
       name: 'Ponto de Vista', 
-      state: 'CE', 
+      acronymState: 'CE',
+      state: 'Ceará',
+      city: 'Fortaleza',
       differentials: [
         { title: '2 quartos', icon: 'bed' },
         { title: '1 banheiro', icon: 'bath' },
@@ -78,12 +86,14 @@ function fetchMostImportantRealStates() {
       image: imagem5,
       minIncome: 'R$ 1.500,00',
       name: 'Cidade Jardim',
-      state: 'CE', 
+      acronymState: 'CE',
+      state: 'Ceará',
+      city: 'Fortaleza',
       differentials: [
         { title: '2 quartos', icon: 'bed' },
         { title: '1 banheiro', icon: 'bath' },
         { title: '1 vaga', icon: 'car' }
       ]
-    }
+    },
   ]
 }

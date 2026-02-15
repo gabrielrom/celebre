@@ -23,7 +23,7 @@ function RealStateSection({ realStates }) {
             imageSrc={empreendimento.image}
             minIncome={empreendimento.minIncome}
             name={empreendimento.name}
-            state={empreendimento.state}
+            state={empreendimento.acronymState}
             differentials={empreendimento.differentials.map((differential) => ({
               title: differential.title,
               icon: iconMap[differential.icon]

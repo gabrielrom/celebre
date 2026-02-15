@@ -34,6 +34,24 @@
   flex-grow: 1;
 }
 
+.removeFiltersButton {
+  min-height: 45px;
+  font-size: 12px;
+}
+
+.realStateContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.realStateCount {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--subtitle-text-color);
+}
+
 .realStateList {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -47,6 +65,10 @@
   .filterContent {
     flex-direction: column;
     gap: 20px;
+  }
+
+  .removeFiltersButton {
+    font-size: 12px;
   }
 
   .realStateList {

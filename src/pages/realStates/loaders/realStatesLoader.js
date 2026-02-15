@@ -4,19 +4,28 @@ import imagem3 from '../../../assets/imagem-3.jpg';
 import imagem4 from '../../../assets/imagem-4.jpeg';
 import imagem5 from '../../../assets/imagem-5.jpeg';
 
-export function realStatesLoader() {
-  const realStates = fetchRealStates();
-  return { realStates: realStates };
+export function realStatesLoader({ request }) {
+  const url = new URL(request.url);
+  const estado = url.searchParams.get("estado");
+  const cidade = url.searchParams.get("cidade");
+  const realStates = fetchRealStates(estado, cidade);
+  return { realStates: realStates, filters: { estado, cidade } };
 }
 
-function fetchRealStates() {
+function fetchRealStates (estado, cidade) {
+  if (estado && cidade) {
+    return fetchRealStateByByState(estado, cidade);
+  }
+
   return [
    {
      id: 1,
      image: imagem1,
      minIncome: 'R$ 3.200,00', 
      name: 'Forte Alencar', 
-     state: 'CE', 
+     acronymState: 'CE',
+     state: 'Ceará',
+     city: 'Fortaleza',
      differentials: [
        { title: '2 quartos', icon: 'bed' },
        { title: '1 banheiro', icon: 'bath' },
@@ -28,7 +37,9 @@ function fetchRealStates() {
      image: imagem2,
      minIncome: 'R$ 1.000,00', 
      name: 'Bosque das Flores',
-     state: 'CE', 
+     acronymState: 'CE',
+     state: 'Ceará',
+     city: 'Fortaleza',
      differentials: [
        { title: '2 quartos', icon: 'bed' },
        { title: '1 banheiro', icon: 'bath' },
@@ -39,7 +50,9 @@ function fetchRealStates() {
      image: imagem3,
      minIncome: 'R$ 1.200,00',
      name: 'Ipanema Beach', 
-     state: 'CE', 
+     acronymState: 'CE',
+     state: 'Ceará',
+     city: 'Fortaleza',
      differentials: [
        { title: '2 quartos', icon: 'bed' },
        { title: '1 banheiro', icon: 'bath' },
@@ -51,7 +64,9 @@ function fetchRealStates() {
      image: imagem4,
      minIncome: 'R$ 3.200,00', 
      name: 'Ponto de Vista', 
-     state: 'CE', 
+     acronymState: 'CE',
+     state: 'Ceará',
+     city: 'Fortaleza',
      differentials: [
        { title: '2 quartos', icon: 'bed' },
        { title: '1 banheiro', icon: 'bath' },
@@ -63,7 +78,9 @@ function fetchRealStates() {
      image: imagem5,
      minIncome: 'R$ 1.500,00',
      name: 'Cidade Jardim',
-     state: 'CE', 
+     acronymState: 'CE',
+     state: 'Ceará',
+     city: 'Fortaleza',
      differentials: [
        { title: '2 quartos', icon: 'bed' },
        { title: '1 banheiro', icon: 'bath' },
@@ -75,7 +92,9 @@ function fetchRealStates() {
      image: imagem1,
      minIncome: 'R$ 3.200,00', 
      name: 'Forte Alencar', 
-     state: 'CE', 
+     acronymState: 'CE',
+     state: 'Ceará',
+     city: 'Fortaleza',
      differentials: [
        { title: '2 quartos', icon: 'bed' },
        { title: '1 banheiro', icon: 'bath' },
@@ -87,7 +106,9 @@ function fetchRealStates() {
      image: imagem1,
      minIncome: 'R$ 3.200,00', 
      name: 'Forte Alencar', 
-     state: 'CE', 
+    acronymState: 'CE',
+     state: 'Ceará',
+     city: 'Eusebio',
      differentials: [
        { title: '2 quartos', icon: 'bed' },
        { title: '1 banheiro', icon: 'bath' },
@@ -99,7 +120,9 @@ function fetchRealStates() {
      image: imagem1,
      minIncome: 'R$ 3.200,00', 
      name: 'Forte Alencar', 
-     state: 'CE', 
+     acronymState: 'CE',
+     state: 'Ceará',
+     city: 'Fortaleza',
      differentials: [
        { title: '2 quartos', icon: 'bed' },
        { title: '1 banheiro', icon: 'bath' },
@@ -111,8 +134,10 @@ function fetchRealStates() {
      image: imagem1,
      minIncome: 'R$ 3.200,00', 
      name: 'Forte Alencar', 
-     state: 'CE', 
-     differentials: [
+     acronymState: 'CE',
+     state: 'Ceará',
+     city: 'Fortaleza',
+      differentials: [
        { title: '2 quartos', icon: 'bed' },
        { title: '1 banheiro', icon: 'bath' },
        { title: '1 vaga', icon: 'car' }
@@ -123,7 +148,9 @@ function fetchRealStates() {
      image: imagem1,
      minIncome: 'R$ 3.200,00', 
      name: 'Forte Alencar', 
-     state: 'CE', 
+     acronymState: 'CE',
+     state: 'Ceará',
+     city: 'Eusebio',
      differentials: [
        { title: '2 quartos', icon: 'bed' },
        { title: '1 banheiro', icon: 'bath' },
@@ -135,24 +162,18 @@ function fetchRealStates() {
      image: imagem1,
      minIncome: 'R$ 3.200,00', 
      name: 'Forte Alencar', 
-     state: 'CE', 
+     acronymState: 'CE',
+     state: 'Ceará',
+     city: 'Eusebio',
      differentials: [
        { title: '2 quartos', icon: 'bed' },
        { title: '1 banheiro', icon: 'bath' },
        { title: '1 vaga', icon: 'car' }
      ]
-   },
-   {
-     id: 12, 
-     image: imagem1,
-     minIncome: 'R$ 3.200,00', 
-     name: 'Forte Alencar', 
-     state: 'CE', 
-     differentials: [
-       { title: '2 quartos', icon: 'bed' },
-       { title: '1 banheiro', icon: 'bath' },
-       { title: '1 vaga', icon: 'car' }
-     ]
-   },
+   }
  ]
+}
+
+function fetchRealStateByByState(state, city) {
+  return fetchRealStates().filter(realState => realState.state === state && realState.city === city);
 }

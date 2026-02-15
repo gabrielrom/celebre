@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useRevalidator, useSearchParams } from "react-router-dom";
 import { SlidersHorizontal } from "lucide-react";
 import { iconMap } from "../../../configs/global";
 import styles from "./RealStatesView.module.css";
@@ -9,10 +9,13 @@ import CelebreDropdown from "../../../components/CelebreDropdown/CelebreDropdown
 import EmpreendimentoCard from "../../../components/EmpreendimentoCard/EmpreendimentoCard";
 
 function RealStatesView() {
-  const { realStates } = useLoaderData();
-  const [selectedState, setSelectedState] = useState(null);
-  const [selectedCity, setSelectedCity] = useState(null);
-  const [isFiltersApplied, setIsFiltersApplied] = useState(false);
+  const { realStates, filters } = useLoaderData();
+  const revalidator = useRevalidator();
+  const [_, setSearchParams] = useSearchParams();
+
+  const [selectedState, setSelectedState] = useState(filters.estado ?? null);
+  const [selectedCity, setSelectedCity] = useState(filters.cidade ?? null);
+  const isFiltersApplied = selectedState && selectedCity;
 
   function handleSelectedState(option) {
     setSelectedState(option);
@@ -20,13 +23,15 @@ function RealStatesView() {
 
   function handleSelectedCity(option) {
     setSelectedCity(option);
-    setIsFiltersApplied(true);
+    setSearchParams({ estado: selectedState, cidade: option }, { replace: true });
+    revalidator.revalidate();
   }
 
   function handleRemoveFilters() {
     setSelectedState(null);
     setSelectedCity(null);
-    setIsFiltersApplied(false);
+    setSearchParams({}, { replace: true });
+    revalidator.revalidate();
   }
 
   return (
@@ -51,7 +56,7 @@ function RealStatesView() {
             className={styles.stateDropdown}
             label="Cidade"
             placeholder="Selecione sua cidade"
-            options={["Fortaleza"]}
+            options={["Fortaleza", "Eusebio", "Caucaia"]}
             value={selectedCity}
             onSelected={handleSelectedCity}
             disabled={!selectedState}
@@ -60,29 +65,31 @@ function RealStatesView() {
           <CelebreButton
             className={styles.removeFiltersButton}
             title="Remover filtros"
-            style={{ minHeight: "45px", fontSize: "14px" }}
             disabled={!isFiltersApplied}
             onClick={handleRemoveFilters}
           />
         </div>
       </Box>
-
-      <div className={styles.realStateList}>
-        {realStates.map((empreendimento) => (
-          <EmpreendimentoCard 
-            key={empreendimento.id}
-            to={`/imoveis/detalhes/${empreendimento.id}`}
-            imageSrc={empreendimento.image}
-            minIncome={empreendimento.minIncome}
-            name={empreendimento.name}
-            state={empreendimento.state}
-            differentials={empreendimento.differentials.map((differential) => ({
-              title: differential.title,
-              icon: iconMap[differential.icon]
-            }))}
-          />
-        ))}
+      <div className={styles.realStateContainer}>
+        <p className={styles.realStateCount}>Exibindo <strong>{realStates.length}</strong> imóveis para você</p>
+        <div className={styles.realStateList}>
+          {realStates.map((empreendimento) => (
+            <EmpreendimentoCard 
+              key={empreendimento.id}
+              to={`/imoveis/detalhes/${empreendimento.id}`}
+              imageSrc={empreendimento.image}
+              minIncome={empreendimento.minIncome}
+              name={empreendimento.name}
+              state={empreendimento.acronymState}
+              differentials={empreendimento.differentials.map((differential) => ({
+                title: differential.title,
+                icon: iconMap[differential.icon]
+              }))}
+            />
+          ))}
+        </div>
       </div>
+      
     </section>
   );
 }
