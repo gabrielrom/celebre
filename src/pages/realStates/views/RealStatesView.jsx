@@ -71,7 +71,7 @@ function RealStatesView() {
         </div>
       </Box>
       <div className={styles.realStateContainer}>
-        <p className={styles.realStateCount}>Exibindo <strong>{realStates.length}</strong> imóveis para você</p>
+        <p className={styles.realStateCount}>Exibindo <strong>{realStates.length}</strong> imóveis</p>
         <div className={styles.realStateList}>
           {realStates.map((empreendimento) => (
             <EmpreendimentoCard 
