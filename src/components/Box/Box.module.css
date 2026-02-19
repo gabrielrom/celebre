@@ -1,0 +1,10 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: var(--white-color);
+  border: 1px solid var(--gray-border-color);
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+}

@@ -1,0 +1,86 @@
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  padding: 50px 26px;
+}
+
+.filterHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.filterIcon {
+  color: var(--subtitle-text-color);
+}
+
+.filterTitle {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--title-text-color);
+}
+
+.filterContent {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.stateDropdown {
+  flex-grow: 1;
+}
+
+.removeFiltersButton {
+  min-height: 45px;
+  font-size: 12px;
+}
+
+.realStateContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.realStateCount {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--subtitle-text-color);
+}
+
+.realStateList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Media Queries */
+
+/* Mobile */
+@media (max-width: 768px) {
+  .filterContent {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .removeFiltersButton {
+    font-size: 12px;
+  }
+
+  .realStateList {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .realStateList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu } from 'lucide-react';
 import styles from './Navbar.module.css';
 import logo from '../../assets/logo-celebre.svg';
+import { routesPath } from '../../configs/global';
 
 export default function Navbar() {
   const location = useLocation();
@@ -11,14 +12,14 @@ export default function Navbar() {
   };
 
   const navItems = [
-    { label: 'Início', path: '/' },
-    { label: 'Imóveis a venda', path: '/imoveis' }
+    { label: 'Início', path: routesPath['index'] },
+    { label: 'Imóveis a venda', path: routesPath['realStates'] }
   ];
 
   return (
     <nav className={styles.navbar}>
       <div className={styles.logoContainer}>
-        <Link to="/">
+        <Link to={routesPath['index']}>
           <img src={logo} alt="Celebre" className={styles.logo} />
         </Link>
       </div>
