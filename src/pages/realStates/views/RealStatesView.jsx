@@ -1,5 +1,9 @@
 import { useState } from "react";
-import { useLoaderData, useRevalidator, useSearchParams } from "react-router-dom";
+import {
+  useLoaderData,
+  useRevalidator,
+  useSearchParams,
+} from "react-router-dom";
 import { SlidersHorizontal } from "lucide-react";
 import { iconMap } from "../../../configs/global";
 import erro404Image from "../../../assets/erro-404.png";
@@ -25,7 +29,10 @@ function RealStatesView() {
 
   function handleSelectedCity(option) {
     setSelectedCity(option);
-    setSearchParams({ estado: selectedState, cidade: option }, { replace: true });
+    setSearchParams(
+      { estado: selectedState, cidade: option },
+      { replace: true },
+    );
     revalidator.revalidate();
   }
 
@@ -74,30 +81,37 @@ function RealStatesView() {
       </Box>
       <div className={styles.realStateContainer}>
         {realStates.length === 0 ? (
-          <EmptyRealStates title="Nenhum imóvel encontrado!" subtitle="Tente novamente alterando ou removendo os filtros." imageSrc={erro404Image} />
+          <EmptyRealStates
+            title="Nenhum imóvel encontrado!"
+            subtitle="Tente novamente alterando ou removendo os filtros."
+            imageSrc={erro404Image}
+          />
         ) : (
           <>
-            <p className={styles.realStateCount}>Exibindo <strong>{realStates.length}</strong> imóveis</p>
+            <p className={styles.realStateCount}>
+              Exibindo <strong>{realStates.length}</strong> imóveis
+            </p>
             <div className={styles.realStateList}>
               {realStates.map((empreendimento) => (
-                <EmpreendimentoCard 
+                <EmpreendimentoCard
                   key={empreendimento.id}
                   to={`/imoveis/detalhes/${empreendimento.id}`}
                   imageSrc={empreendimento.image}
                   minIncome={empreendimento.minIncome}
                   name={empreendimento.name}
                   state={empreendimento.acronymState}
-                  differentials={empreendimento.differentials.map((differential) => ({
-                    title: differential.title,
-                    icon: iconMap[differential.icon]
-                  }))}
+                  differentials={empreendimento.differentials.map(
+                    (differential) => ({
+                      title: differential.title,
+                      icon: iconMap[differential.icon],
+                    }),
+                  )}
                 />
               ))}
             </div>
           </>
         )}
       </div>
-      
     </section>
   );
 }
