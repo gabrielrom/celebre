@@ -2,11 +2,13 @@ import { useState } from "react";
 import { useLoaderData, useRevalidator, useSearchParams } from "react-router-dom";
 import { SlidersHorizontal } from "lucide-react";
 import { iconMap } from "../../../configs/global";
+import erro404Image from "../../../assets/erro-404.png";
 import styles from "./RealStatesView.module.css";
 import Box from "../../../components/Box/Box";
 import CelebreButton from "../../../components/CelebreButton/CelebreButton";
 import CelebreDropdown from "../../../components/CelebreDropdown/CelebreDropdown";
 import EmpreendimentoCard from "../../../components/EmpreendimentoCard/EmpreendimentoCard";
+import EmptyRealStates from "../components/EmptyRealStates/EmptyRealStates";
 
 function RealStatesView() {
   const { realStates, filters } = useLoaderData();
@@ -71,23 +73,29 @@ function RealStatesView() {
         </div>
       </Box>
       <div className={styles.realStateContainer}>
-        <p className={styles.realStateCount}>Exibindo <strong>{realStates.length}</strong> imóveis</p>
-        <div className={styles.realStateList}>
-          {realStates.map((empreendimento) => (
-            <EmpreendimentoCard 
-              key={empreendimento.id}
-              to={`/imoveis/detalhes/${empreendimento.id}`}
-              imageSrc={empreendimento.image}
-              minIncome={empreendimento.minIncome}
-              name={empreendimento.name}
-              state={empreendimento.acronymState}
-              differentials={empreendimento.differentials.map((differential) => ({
-                title: differential.title,
-                icon: iconMap[differential.icon]
-              }))}
-            />
-          ))}
-        </div>
+        {realStates.length === 0 ? (
+          <EmptyRealStates title="Nenhum imóvel encontrado!" subtitle="Tente novamente alterando ou removendo os filtros." imageSrc={erro404Image} />
+        ) : (
+          <>
+            <p className={styles.realStateCount}>Exibindo <strong>{realStates.length}</strong> imóveis</p>
+            <div className={styles.realStateList}>
+              {realStates.map((empreendimento) => (
+                <EmpreendimentoCard 
+                  key={empreendimento.id}
+                  to={`/imoveis/detalhes/${empreendimento.id}`}
+                  imageSrc={empreendimento.image}
+                  minIncome={empreendimento.minIncome}
+                  name={empreendimento.name}
+                  state={empreendimento.acronymState}
+                  differentials={empreendimento.differentials.map((differential) => ({
+                    title: differential.title,
+                    icon: iconMap[differential.icon]
+                  }))}
+                />
+              ))}
+            </div>
+          </>
+        )}
       </div>
       
     </section>
