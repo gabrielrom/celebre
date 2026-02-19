@@ -9,7 +9,7 @@ export function realStatesLoader({ request }) {
   const estado = url.searchParams.get("estado");
   const cidade = url.searchParams.get("cidade");
   const realStates = fetchRealStates(estado, cidade);
-  return { realStates: realStates, filters: { estado, cidade } };
+  return { realStates: realStates };
 }
 
 function fetchRealStates (estado, cidade) {

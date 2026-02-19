@@ -1,9 +1,5 @@
 import { useState } from "react";
-import {
-  useLoaderData,
-  useRevalidator,
-  useSearchParams,
-} from "react-router-dom";
+import {useLoaderData, useSearchParams } from "react-router-dom";
 import { SlidersHorizontal } from "lucide-react";
 import { iconMap } from "../../../configs/global";
 import erro404Image from "../../../assets/erro-404.png";
@@ -15,32 +11,38 @@ import EmpreendimentoCard from "../../../components/EmpreendimentoCard/Empreendi
 import EmptyRealStates from "../components/EmptyRealStates/EmptyRealStates";
 
 function RealStatesView() {
-  const { realStates, filters } = useLoaderData();
-  const revalidator = useRevalidator();
-  const [_, setSearchParams] = useSearchParams();
-
-  const [selectedState, setSelectedState] = useState(filters.estado ?? null);
-  const [selectedCity, setSelectedCity] = useState(filters.cidade ?? null);
+  const { realStates } = useLoaderData();
+  const [ searchParams, setSearchParams ] = useSearchParams();
+  const availableStates = ["Ceará"];
+  const availableCities = ["Fortaleza", "Eusebio", "Caucaia"];
+  const [selectedState, setSelectedState] = useState(availableStates.includes(searchParams.estado) ? searchParams.estado : null);
+  const [selectedCity, setSelectedCity] = useState(availableCities.includes(searchParams.cidade) ? searchParams.cidade : null);
   const isFiltersApplied = selectedState && selectedCity;
-
+  
   function handleSelectedState(option) {
-    setSelectedState(option);
+    if (availableStates.includes(option)) {
+      setSelectedState(option);
+    }
+    
+    return;
   }
 
   function handleSelectedCity(option) {
-    setSelectedCity(option);
-    setSearchParams(
-      { estado: selectedState, cidade: option },
-      { replace: true },
-    );
-    revalidator.revalidate();
+    if (availableCities.includes(option)) {
+      setSelectedCity(option);
+      setSearchParams(
+        { estado: selectedState, cidade: option },
+        { replace: true },
+      );
+    }
+
+    return;
   }
 
   function handleRemoveFilters() {
     setSelectedState(null);
     setSelectedCity(null);
     setSearchParams({}, { replace: true });
-    revalidator.revalidate();
   }
 
   return (
@@ -56,7 +58,7 @@ function RealStatesView() {
             className={styles.stateDropdown}
             label="Estado"
             placeholder="Selecione seu estado"
-            options={["Ceará"]}
+            options={availableStates}
             value={selectedState}
             onSelected={handleSelectedState}
           />
@@ -65,7 +67,7 @@ function RealStatesView() {
             className={styles.stateDropdown}
             label="Cidade"
             placeholder="Selecione sua cidade"
-            options={["Fortaleza", "Eusebio", "Caucaia"]}
+            options={availableCities}
             value={selectedCity}
             onSelected={handleSelectedCity}
             disabled={!selectedState}
