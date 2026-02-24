@@ -1,7 +1,6 @@
 import { useState } from "react";
-import {useLoaderData, useSearchParams } from "react-router-dom";
+import { useLoaderData, useSearchParams } from "react-router-dom";
 import { SlidersHorizontal } from "lucide-react";
-import { iconMap } from "../../../configs/global";
 import erro404Image from "../../../assets/erro-404.png";
 import styles from "./RealStatesView.module.css";
 import Box from "../../../components/Box/Box";
@@ -9,6 +8,7 @@ import CelebreButton from "../../../components/CelebreButton/CelebreButton";
 import CelebreDropdown from "../../../components/CelebreDropdown/CelebreDropdown";
 import EmpreendimentoCard from "../../../components/EmpreendimentoCard/EmpreendimentoCard";
 import EmptyRealStates from "../components/EmptyRealStates/EmptyRealStates";
+import { getIconElement } from "../../../configs/global";
 
 function RealStatesView() {
   const { realStates } = useLoaderData();
@@ -105,7 +105,7 @@ function RealStatesView() {
                   differentials={empreendimento.differentials.map(
                     (differential) => ({
                       title: differential.title,
-                      icon: iconMap[differential.icon],
+                      icon: getIconElement(differential.icon),
                     }),
                   )}
                 />

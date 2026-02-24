@@ -5,6 +5,8 @@ import { HomeView } from './pages/home/views/HomeView'
 import CelebrePage from './components/CelebrePage/CelebrePage'
 import RealStatesView from './pages/realStates/views/RealStatesView'
 import { realStatesLoader } from './pages/realStates/loaders/realStatesLoader'
+import { RealStateDetailsView } from './pages/realStateDetails/views/RealStateDetailsView'
+import { realStateDetailsLoader } from './pages/realStateDetails/loaders/realStateDetailsLoader'
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,11 @@ const router = createBrowserRouter([
         path: routesPath['realStates'],
         element: <RealStatesView />,
         loader: realStatesLoader
+      },
+      {
+        path: `${routesPath['realStateDetails']}/:id`,
+        element: <RealStateDetailsView />,
+        loader: realStateDetailsLoader
       }
     ]
   }

@@ -1,0 +1,51 @@
+.wrapper {
+  display: flex;
+  position: fixed;
+  bottom: 200px;
+  right: 10px;
+  z-index: 100;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--success-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.link:hover {
+  background: color-mix(
+    in srgb,
+    var(--success-color) 90%,
+    var(--primary-color)
+  );
+}
+
+.link:active {
+  transform: translateY(1px);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.iconWrapper img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
