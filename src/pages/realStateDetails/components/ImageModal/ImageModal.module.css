@@ -1,0 +1,117 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: color-mix(in srgb, var(--black-color) 90%, transparent);
+  cursor: default;
+}
+
+.modal {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  border: 0;
+  background: transparent;
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+.imageWrapper {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  max-width: min(1200px, 92vw);
+  max-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.imageWrapper.zoomed {
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;
+}
+
+.imageWrapper.zoomed:active {
+  cursor: grabbing;
+}
+
+.imageInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  transition: width 0.2s ease-out, height 0.2s ease-out;
+}
+
+.imageInner.zoomed {
+  width: 220%;
+  height: 220%;
+}
+
+.image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+}
+
+.navButton {
+  border: 1px solid color-mix(in srgb, var(--white-color) 50%, transparent);
+  border-radius: 8px;
+  padding: 10px 14px;
+  background: color-mix(in srgb, var(--black-color) 50%, transparent);
+  color: var(--white-color);
+  cursor: pointer;
+  font-family: var(--font-sans);
+}
+
+.navButton:hover {
+  background: color-mix(in srgb, var(--black-color) 70%, transparent);
+}
+
+.counter {
+  font-family: var(--font-sans);
+  color: var(--white-color);
+}

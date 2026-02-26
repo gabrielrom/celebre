@@ -4,6 +4,7 @@
 :root {
   --primary-color: #0B3D0F;
   --secodary-color: #E8A830;
+  --success-color: #079A38;
   --title-text-color: #1A1A1A;
   --subtitle-text-color: #3D3D3D;
   --white-color: #FFFFFF;
@@ -25,6 +26,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {

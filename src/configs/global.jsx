@@ -1,14 +1,21 @@
-import { Bed, Bath, Car } from "lucide-react";
+import { Bed, Bath, Car, Scan } from "lucide-react";
 
 const routesPath = {
   index: "/",
   realStates: "/imoveis",
+  realStateDetails: "/imoveis/detalhes",
 };
 
-const iconMap = { 
-  bed: <Bed />, 
-  bath: <Bath />, 
-  car: <Car /> 
+const iconMap = {
+  bed: Bed,
+  bath: Bath, 
+  car: Car,
+  scan: Scan,
 };
 
-export { routesPath, iconMap };
+function getIconElement(name, props = {}) {
+  const Icon = iconMap[name];
+  return Icon ? <Icon {...props} /> : null;
+}
+
+export { routesPath, iconMap, getIconElement };

@@ -4,7 +4,7 @@ import { MoveRight } from 'lucide-react'
 import EmpreendimentoCard from '../../../../components/EmpreendimentoCard/EmpreendimentoCard'
 import CelebreButton from '../../../../components/CelebreButton/CelebreButton'
 import styles from './RealStateSection.module.css'
-import { routesPath, iconMap } from '../../../../configs/global'
+import { routesPath, getIconElement } from '../../../../configs/global'
 
 function RealStateSection({ realStates }) {
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ function RealStateSection({ realStates }) {
             state={empreendimento.acronymState}
             differentials={empreendimento.differentials.map((differential) => ({
               title: differential.title,
-              icon: iconMap[differential.icon]
+              icon: getIconElement(differential.icon)
             }))}
           />
         ))}

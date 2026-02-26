@@ -12,7 +12,7 @@ function Footer({ className }) {
         <div className={styles.brandSection}>
           <div className={styles.brandHeader}>
             <img src={logoCelebre} alt="Celebre" />
-            <h2 className={styles.logoText}>Celebre</h2>
+            <h2 className={styles.logoText}>Celebre Imóveis</h2>
           </div>
           <p className={styles.description}>
             Lorem Ipsum is simply dummy text of the printing and typesetting
