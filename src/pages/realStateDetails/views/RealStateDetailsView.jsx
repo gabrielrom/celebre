@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { CircleCheckBig, MapPin } from "lucide-react";
-import { useLoaderData } from "react-router-dom";
 import Box from "../../../components/Box/Box";
 import ImageGallery from "../components/ImageGallery/ImageGallery";
 import ImageModal from "../components/ImageModal/ImageModal";
@@ -10,8 +9,7 @@ import HousePlanImage from "../components/HousePlanImage/HousePlanImage";
 import RealStateFeatureGrid from "../components/RealStateFeatureGrid/RealStateFeatureGrid";
 import styles from "./RealStateDetailsView.module.css";
 
-export function RealStateDetailsView() {
-  const { realState } = useLoaderData();
+function RealStateDetailsView({ realState }) {
   const [modalState, setModalState] = useState({
     isOpen: false,
     images: [],
@@ -169,8 +167,18 @@ export function RealStateDetailsView() {
               src={realState.zoneImage}
               alt="Vista aérea da região"
               className={styles.regionImage}
-              onClick={() => openModal([realState.zoneImage], 0, "Vista aérea da região")}
+              onClick={() =>
+                openModal([realState.zoneImage], 0, "Vista aérea da região")
+              }
               aria-label="Ampliar vista aérea da região"
+            />
+
+            <iframe
+              title={`Mapa de ${realState.city}`}
+              src={realState.mapUrl}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className={styles.mapFrame}
             />
           </div>
 
@@ -182,14 +190,6 @@ export function RealStateDetailsView() {
               />
             </div>
           </aside>
-
-          <iframe
-            title={`Mapa de ${realState.city}`}
-            src={realState.mapUrl}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className={styles.mapFrame}
-          />
         </div>
 
         <ImageModal
@@ -210,3 +210,5 @@ export function RealStateDetailsView() {
     </section>
   );
 }
+
+export default RealStateDetailsView;

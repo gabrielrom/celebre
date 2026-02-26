@@ -1,0 +1,67 @@
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.skeletonContainer {
+  width: 100%;
+}
+
+.skeletonBlock {
+  background: var(--gray-border-color);
+  animation: pulse 0.7s ease-in-out infinite;
+}
+
+.heroSkeleton {
+  width: 100%;
+  height: 500px;
+}
+
+.skeletonAboutRealStateCard {
+  width: 100%;
+  height: 300px;
+}
+
+.skeletonFeaturesCard {
+  width: 100%;
+  height: 350px;
+}
+
+.skeletonAboutZoneCard {
+  width: 100%;
+  height: 160px;
+}
+
+.skeletonRegionImage {
+  width: 100%;
+  height: 300px;
+}
+
+.skeletonMap {
+  width: 100%;
+  min-height: 350px;
+}
+
+.skeletonCardAside {
+  height: 200px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .heroSkeleton {
+    height: 280px;
+  }
+
+  .skeletonAboutZoneCard {
+    height: 150px;
+  }
+
+  .skeletonRegionImage {
+    height: 130px;
+  }
+}
