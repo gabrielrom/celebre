@@ -6,6 +6,7 @@ import ImageGallery from "../components/ImageGallery/ImageGallery";
 import ImageModal from "../components/ImageModal/ImageModal";
 import InterestedCard from "../components/InterestedCard/InterestedCard";
 import FloatingContactButton from "../components/FloatingContactButton/FloatingContactButton";
+import HousePlanImage from "../components/HousePlanImage/HousePlanImage";
 import RealStateFeatureGrid from "../components/RealStateFeatureGrid/RealStateFeatureGrid";
 import styles from "./RealStateDetailsView.module.css";
 
@@ -47,15 +48,18 @@ export function RealStateDetailsView() {
 
   const differentialPairs = realState.differentials.reduce(
     (acc, item, index) => {
-      if (index % 2 === 0) acc.push([item]);
-      else acc[acc.length - 1].push(item);
+      if (index % 2 === 0) {
+        acc.push([item]);
+      } else {
+        acc[acc.length - 1].push(item);
+      }
       return acc;
     },
     [],
   );
 
   return (
-    <section className={styles.page}>
+    <section>
       <div className={styles.heroFullBleed}>
         <ImageGallery
           images={realState.bannerImages}
@@ -138,6 +142,22 @@ export function RealStateDetailsView() {
               </div>
 
               <h3 className={styles.sectionTitle}>Plantas disponíveis</h3>
+              <div className={styles.housePlansList}>
+                {realState.housePlansImages.map((image, index) => (
+                  <HousePlanImage
+                    key={`${realState.name}-house-plan-${index}`}
+                    src={image}
+                    alt={`Planta do imóvel ${index + 1}`}
+                    onClick={() =>
+                      openModal(
+                        realState.housePlansImages,
+                        index,
+                        "Plantas disponíveis",
+                      )
+                    }
+                  />
+                ))}
+              </div>
             </Box>
 
             <Box className={`${styles.sectionCard} ${styles.zoneCard}`}>

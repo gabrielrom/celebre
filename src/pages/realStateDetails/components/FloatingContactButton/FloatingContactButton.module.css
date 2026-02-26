@@ -1,7 +1,7 @@
 .wrapper {
   display: flex;
   position: fixed;
-  bottom: 200px;
+  bottom: 150px;
   right: 10px;
   z-index: 100;
 }

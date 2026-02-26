@@ -1,14 +1,5 @@
-.page {
-  width: 100%;
-}
-
 .heroFullBleed {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  width: 100%;
 }
 
 .container {
@@ -48,6 +39,7 @@
 
 .sectionCard {
   width: 100%;
+  min-width: 0;
   gap: 12px;
 }
 
@@ -173,6 +165,21 @@
 }
 
 .floatingContactButton {
+  display: none;
+}
+
+.housePlansList {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.housePlansList::-webkit-scrollbar {
   display: none;
 }
 
