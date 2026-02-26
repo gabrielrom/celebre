@@ -169,6 +169,8 @@ export function RealStateDetailsView() {
               src={realState.zoneImage}
               alt="Vista aérea da região"
               className={styles.regionImage}
+              onClick={() => openModal([realState.zoneImage], 0, "Vista aérea da região")}
+              aria-label="Ampliar vista aérea da região"
             />
           </div>
 

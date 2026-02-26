@@ -1,6 +1,11 @@
 import heroImage from '../../../assets/real-state-hero.svg';
 import regionMapCover from '../../../assets/real-state-region-map-cover.png';
 import regionPhoto from '../../../assets/real-state-region-photo.png';
+import housePlanImage1 from '../../../assets/planta-1.jpeg';
+import housePlanImage2 from '../../../assets/planta-2.jpeg';
+import housePlanImage3 from '../../../assets/planta-3.jpeg';
+import housePlanImage4 from '../../../assets/planta-4.jpeg';
+import housePlanImage5 from '../../../assets/planta-5.jpeg';
 
 export function realStateDetailsLoader({ params }) {
   return {
@@ -20,7 +25,7 @@ export function realStateDetailsLoader({ params }) {
       description:
         'Um oásis urbano com lazer completo e ambientes que equilibram qualidade de vida, convivência e tranquilidade! O empreendimento chega como um marco na  Região do Cambeba: três torres imponentes com elevadores e apartamentos de 2 quartos com varanda e opção de suíte. Além de ter unidades no térreo com opção de área privativa. Aqui, cada detalhe foi pensado para elevar sua experiência: opções com suíte, unidades com área privativa e uma vista livre para um futuro de conforto e exclusividade.',
       differentials: ['Piscina', 'Pet Place', 'Elevador', 'Espaço Gourmet', 'Espaço Kids'],
-      housePlansImages: [regionMapCover, regionPhoto, heroImage],
+      housePlansImages: [housePlanImage1, housePlanImage2, housePlanImage3, housePlanImage4, housePlanImage5],
       aboutZone:
         "O Forte Alencar está numa zona em franca expansão. Com comércios, serviços e facilidades a poucos minutos de sua casa, como supermercados, academias, farmácias, redes de fast food e o Mall Buena Vista. A mobilidade é um ponto forte, com acesso rápido a toda a cidade pela BR-116, Av. Frei Cirilo e Rua José Albuquerque Pereira.",
       zoneImage: regionPhoto,
